@@ -17,28 +17,12 @@ ADMINS = (
 
 MANAGERS = ADMINS
 
-if DEV:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'theW4',                      # Or path to database file if using sqlite3.
-            'USER': 'root',                      # Not used with sqlite3.
-            'PASSWORD': 'root',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
-    }
-else:
-    DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.mysql', # Add 'postgresql_psycopg2', 'mysql', 'sqlite3' or 'oracle'.
-            'NAME': 'W4',                      # Or path to database file if using sqlite3.
-            'USER': 'w4_dbuser',                      # Not used with sqlite3.
-            'PASSWORD': '^*e!7SAxqYHwl!yGQd',                  # Not used with sqlite3.
-            'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
-            'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
-        }
-    }
+PROJECT_NAME = 'theW4'
+DOMAIN = 'ec2-54-247-131-149.eu-west-1.compute.amazonaws.com'
+
+#INCLUDE
+from passwords import DATABASES
+from passwords import SECRET_KEY
 
 import os
 PROJECT_ROOT_PATH = os.path.dirname(__file__)
@@ -107,9 +91,6 @@ STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.AppDirectoriesFinder',
 #    'django.contrib.staticfiles.finders.DefaultStorageFinder',
 )
-
-# Make this unique, and don't share it with anybody.
-SECRET_KEY = 'y^7l64c5%j^(1+tmgh3c84*gg-(#wws1&amp;8-#25rlzk!op%56vw'
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
