@@ -3,4 +3,6 @@ from django.contrib import admin
 from models import Item, Newsletter
 
 admin.site.register(Item)
-admin.site.register(Newsletter)
+class NewsletterAdmin(admin.ModelAdmin):
+    filter_horizontal = ('items',)
+admin.site.register(Newsletter, NewsletterAdmin)
