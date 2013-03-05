@@ -44,17 +44,23 @@ class Newsletter(models.Model):
         return "Newsletter for %s" % (self.date)
 
     def save(self, *args, **kwargs):
+        from settings import W4_SETTING_HTML_DIR
+
         created = False
         if not self.id:
             # if the item has no id, then it's the first time it's been saved.
             # This means it was just created, so set the created date.
             self.created = datetime.now()
             created = True
-        if created:
-            pass #TODO: create directory based on id
-
+        
         self.updated = datetime.now()
         super(Newsletter, self).save(*args, **kwargs) # Call the "real" save() method      
+        
+        if created:
+            import os
+            os.mkdir(os.path.join(W4_SETTING_HTML_DIR, "%s" % self.id))
+
+        dirname = "%s%s/" % (W4_SETTING_HTML_DIR, self.id)
 
         print self.items.all()
         # create static html file
@@ -66,7 +72,7 @@ class Newsletter(models.Model):
         content = template.render(context)
         
         import codecs
-        f = codecs.open("index.html","w", "utf-8")
+        f = codecs.open(dirname+"index.html","w", "utf-8")
         f.write(content)
         f.close
 
