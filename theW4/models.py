@@ -62,8 +62,8 @@ class Newsletter(models.Model):
 
         dirname = "%s%s/" % (W4_SETTING_HTML_DIR, self.id)
 
-        print self.items.all()
-        print dirname
+        # print self.items.all()
+        # print dirname
         # create static html file
         context = Context({
             'items': self.items.all(),
