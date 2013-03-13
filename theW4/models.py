@@ -44,7 +44,7 @@ class Newsletter(models.Model):
         return "Newsletter for %s" % (self.date)
 
     def save(self, *args, **kwargs):
-        from settings import W4_SETTING_HTML_DIR
+        from settings import W4_SETTING_HTML_DIR, W4_SETTING_URL
 
         created = False
         if not self.id:
@@ -63,10 +63,13 @@ class Newsletter(models.Model):
         dirname = "%s%s/" % (W4_SETTING_HTML_DIR, self.id)
 
         print self.items.all()
+        print dirname
         # create static html file
         context = Context({
             'items': self.items.all(),
             'date': self.date,
+            'url': W4_SETTING_URL,
+            'id': self.id,
         })
         template = get_template('newsletter.html')
         content = template.render(context)
