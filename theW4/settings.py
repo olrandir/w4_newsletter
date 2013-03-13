@@ -189,4 +189,4 @@ LOGGING = {
 }
 
 
-W4_SETTING_HTML_DIR = "/srv/www/w4/"
+W4_SETTING_HTML_DIR = "/srv/www/w4/html/"
