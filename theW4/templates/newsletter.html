@@ -16,13 +16,14 @@
 					<td align="center" valign="bottom" style="font-family:Arial,sans-serif; font-size: 16px; border-bottom: 2px solid black">
 						<table cellpadding="0" cellspacing="0" width="790">
 							<tr>
-								<td width="300">
+								<td align="left" valign="middle" width="300" style="font-size:12px;font-style:italic;">
+									{% trans "Powered by" %} <a href="http://www.advocate-bm.gr/" target="_blank" style="text-decoration:none; color:#FF0000">{% trans "Advocate/Burson-Marsteller" %}</a>
 								</td>
 								<td align="center" valign="bottom">
 									{{ date|date:"j F Y" }}
 								</td>
 								<td align="right" valign="middle" width="300" style="font-size:10px;font-style:italic;">
-									{% trans "Δεν εμφανίζεται σωστά;" %} <a href="#" style="text-decoration:none; color:#FF0000">{% trans "Δείτε το στον browser." %}</a>
+									{% trans "Δεν εμφανίζεται σωστά;" %} <a href="{{ url }}newsletters/{{ id }}/" target="_blank" style="text-decoration:none; color:#FF0000">{% trans "Δείτε το στον browser." %}</a>
 								</td>
 							</tr>
 						</table>
@@ -36,7 +37,7 @@
 		<td align="center" valign="middle" style="padding:5px 0;">
 			<table cellpadding="0" cellspacing="0" width="790">
 				<tr>
-					<td style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:14px;background-image: url('http://ec2-54-247-131-149.eu-west-1.compute.amazonaws.com/static/debut_light.png');padding:5px;padding-left:10px">{{ forloop.counter }}. <a href="{{ item.link }}" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:14px;font-style:italic;">{{ item.title }}</a></td>
+					<td style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:14px;background-image: url('{{ url }}static/debut_light.png');padding:5px;padding-left:10px">{{ forloop.counter }}. <a href="{{ item.link }}" target="_blank" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:14px;font-style:italic;">{{ item.title }}</a></td>
 				</tr>
 				<tr>
 					<td style="font-family:Arial,sans-serif; font-size:13px; padding:5px 10px;">
@@ -44,7 +45,7 @@
 					</td>
 				</tr>
 				<tr>
-					<td valign="middle" style="background-image: url('http://ec2-54-247-131-149.eu-west-1.compute.amazonaws.com/static/debut_light.png'); padding: 5px;padding-left:10px;"><img height="13" src="http://ec2-54-247-131-149.eu-west-1.compute.amazonaws.com/static/link_icon_black.png"><a href="{{ item.link }}" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000;font-size:13px;font-style:italic;padding-left:10px;">{{ item.link }}</a></td>
+					<td valign="middle" style="background-image: url('{{ url }}static/debut_light.png'); padding: 5px;padding-left:10px;"><img height="13" src="{{ url }}static/link_icon_black.png"><a href="{{ item.link }}" target="_blank" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000;font-size:13px;font-style:italic;padding-left:10px;">{{ item.link }}</a></td>
 				</tr>
 				<tr height="5">
 					<td style="border-bottom: 1px dotted black;"></td>
@@ -54,17 +55,23 @@
 	</tr>
 	{% endfor %}
 	<tr>
-		<td align="center" valign="middle" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:10px; padding-bottom: 10px">coded by <a target="_blank" href="http://www.alternality.gr/" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:10px;">Dimitris</a>, curated by <a target="_blank" href="http://geeksalad.eu/" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:10px;">Daphne</a>, icons by <a target="_blank" href="http://www.gentleface.com/free_icon_set.html" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:10px;">Gentleface</a> 
+		<td align="center" valign="middle" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:10px; padding-bottom: 6px">coded by <a target="_blank" href="https://twitter.com/olrandir" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:10px;">Dimitris</a> | curated by <a target="_blank" href="http://twitter.com/deadendmind" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:10px;">Daphne</a> | icons by <a target="_blank" href="http://www.gentleface.com/free_icon_set.html" style="font-family:Arial,sans-serif;text-decoration:none;color:#FF0000; font-size:10px;">Gentleface</a> 
 		</td>
 	</tr>
 	<tr>
 		<td align="center" valign="middle">
 			<table cellpadding="0" cellspacing="0" width="790">
-				<tr>
-					<td align="center" valign="middle" style="font-family:Arial,sans-serif; font-size:10px;background:#000000;color:#AAAAAA;">
-						Λαμβάνετε αυτό το e-mail επειδή γραφτήκατε στο W4 Newsletter. Αν δεν επιθυμείτε πια να λαμβάνετε αυτές τις ενημερώσεις, <a href="#" style="text-decoration:none;color:#FF0000;">διαγραφείτε από τη λίστα μας</a>.
+				<tr height="100">
+					<td width="192" style="background:#000000;">
+						<img src="{{ url }}static/w4_logo.png" height="80" style="height:80px;margin-left:10px;"/>
+					</td>
+					<td align="center" valign="middle" style="font-family:Arial,sans-serif; font-size:10px;background:#000000;color:#AAAAAA;padding:10px;">
+						Λαμβάνετε αυτό το e-mail επειδή γραφτήκατε στο W4 Newsletter. Αν δεν επιθυμείτε πια να λαμβάνετε αυτές τις ενημερώσεις, <a href="#" target="_blank" style="text-decoration:none;color:#FF0000;">διαγραφείτε από τη λίστα μας</a>.
 						<br>
-						&copy; {{ date|date:"Y" }} Daphne Koumpa
+						&copy; {{ date|date:"Y" }} Daphne Koumpa &amp; Advocate/Burson-Marsteller
+					</td>
+					<td width="192" align="right" style="background:#000000;">
+						<img src="{{ url }}static/abm_logo.png" height="80" style="height:80px;margin-right:10px;"/>
 					</td>
 				</tr>
 		</td>
