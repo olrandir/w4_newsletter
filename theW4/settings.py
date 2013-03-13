@@ -142,6 +142,11 @@ INSTALLED_APPS = (
 # the site admins on every HTTP 500 error when DEBUG=False.
 # See http://docs.djangoproject.com/en/dev/topics/logging for
 # more details on how to customize your logging configuration.
+
+import platform
+
+W4_LOG_FILENAME = "w4.log"
+
 LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
@@ -150,12 +155,29 @@ LOGGING = {
             '()': 'django.utils.log.RequireDebugFalse'
         }
     },
+    'formatters': {
+        'verbose': {
+            'format': '%(levelname)s %(asctime)s %(module)s %(process)d %(thread)d %(message)s'
+        },
+        'simple': {
+            'format': '%(levelname)s %(message)s'
+        },
+    },
     'handlers': {
         'mail_admins': {
             'level': 'ERROR',
             'filters': ['require_debug_false'],
             'class': 'django.utils.log.AdminEmailHandler'
-        }
+        },
+        'file_handler':  {
+            'class': 'logging.handlers.RotatingFileHandler',
+            'level': 'WARNING',
+            'formatter': 'verbose' if platform.system()=='Windows' else 'verbose',
+            'filename': W4_LOG_FILENAME if platform.system()=='Windows' else '/tmp/%s' % W4_LOG_FILENAME,
+            'mode': 'a',
+            'maxBytes': 10485760,
+            'backupCount': 5,
+        },
     },
     'loggers': {
         'django.request': {
