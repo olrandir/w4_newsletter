@@ -190,3 +190,4 @@ LOGGING = {
 
 
 W4_SETTING_HTML_DIR = "/srv/www/w4/html/"
+W4_SETTING_URL = "http://ec2-54-247-131-149.eu-west-1.compute.amazonaws.com/"
