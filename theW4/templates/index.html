@@ -24,10 +24,10 @@
 	div.logo { font-size: 7.5em; line-height: 1em; font-weight: bold; text-transform: uppercase; height: 128px; text-align: center; margin: 0 auto; border-bottom: 1px solid red; }
 	div.subtitle { height: 20px; width: 940px; font-size: 1em; line-height: 1em; font-weight: bold; text-align: center; margin: auto; padding: 10px 0 5px; border-bottom: 1px solid red;}
 	div.content { margin: 10px; width: 940px; text-align: center;}
-	form#subscription { margin: 20px auto; background: black; color: white; width: 920px; height: 80px; line-height: 80px; text-align: center; padding: 10px;}
-	form#subscription label { margin-right: 5px; font-weight: bold;}
-	form#subscription input[type="email"] { background-color: white; color: red; padding: 5px; border: none; margin-right: 5px;}
-	form#subscription input[type="submit"] { background-color: red; color: white; padding: 5px; border: none; letter-spacing: 0px;}
+	form#subscription, form#mc-embedded-subscribe-form { margin: 20px auto; background: black; color: white; width: 920px; height: 80px; line-height: 80px; text-align: center; padding: 10px;}
+	form#subscription label, form#mc-embedded-subscribe-form label { margin-right: 5px; font-weight: bold;}
+	form#subscription input[type="email"], form#mc-embedded-subscribe-form input[type="email"] { background-color: white; color: red; padding: 5px; border: none; margin-right: 5px;}
+	form#subscription input[type="submit"], form#mc-embedded-subscribe-form input[type="submit"] { background-color: red; color: white; padding: 5px; border: none; letter-spacing: 0px;}
 	p.smallprint {font-size:0.8em;}
 	footer { width: 960px; text-align: center; margin: 0 auto; position: absolute; bottom: 0;}
 	footer * { font-size:13px; margin:0;padding:0;}
@@ -41,11 +41,16 @@
 		</header>
 		<div class="content">
 			<p>Διαλέγουμε τα πιο ενδιαφέροντα links του διαδικτύου και σας τα στέλνουμε κάθε Τετάρτη στο e-mail σας, για να μένετε ενημερωμένοι για τις τελευταίες εξελίξεις. <a href="#">Δείτε το τελευταίο newsletter.</a></p>
-			<form id="subscription" action="">
-				<label for="email">e-mail:</label>
-				<input type="email" name="email" />
-				<input type="submit" value="Εγγραφή" />
+			
+			<!-- Begin MailChimp Signup Form -->
+			<form action="http://advocate-bm.us5.list-manage.com/subscribe/post?u=310c8e6c0a9b479f9fb6f1676&amp;id=ffe401c942" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+				<label for="mce-EMAIL">e-mail:</label>
+				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
+				<input type="submit" value="Εγγραφή" name="subscribe" id="mc-embedded-subscribe" class="button">
 			</form>
+
+			<!--End mc_embed_signup-->
+
 			<p class="smallprint">*Τα τυπικά: δεσμευόμαστε ότι θα διαχειριστούμε τη διεύθυνση e-mail σας με εχεμύθεια, και δε θα τη μοιραστούμε με κανένα τρίτο πρόσωπο, εταιρία ή οργανισμό χωρίς την έγκρισή σας.</p>
 		</div>
 		<footer>
