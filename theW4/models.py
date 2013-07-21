@@ -52,7 +52,9 @@ class Newsletter(models.Model):
             # This means it was just created, so set the created date.
             self.created = datetime.now()
             created = True
-        
+            # find the latest newsletter id
+            latest = Newsletter.objects.order_by('-id')[0]
+
         self.updated = datetime.now()
         super(Newsletter, self).save(*args, **kwargs) # Call the "real" save() method      
         
@@ -79,3 +81,17 @@ class Newsletter(models.Model):
         f.write(content)
         f.close
 
+        #if this is the latest newsletter, create a symlink
+        if created:
+            print 'created'
+            if self.id > latest.id:
+                print 'new!'
+                import os
+                try:
+                    print 'symlinked %s' % W4_SETTING_HTML_DIR+"latest"
+                    os.symlink(dirname+"index.html", W4_SETTING_HTML_DIR+"latest")
+                except OSError, e:
+                    if e.errno == errno.EEXIST:
+                        print 'delete & symlink'
+                        os.remove(W4_SETTING_HTML_DIR+"latest")
+                        os.symlink(dirname+"index.html", W4_SETTING_HTML_DIR+"latest")
