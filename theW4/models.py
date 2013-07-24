@@ -88,6 +88,5 @@ class Newsletter(models.Model):
                 try:
                     os.symlink(dirname+"index.html", W4_SETTING_HTML_DIR+"latest")
                 except OSError, e:
-                    if e.errno == errno.EEXIST:
-                        os.remove(W4_SETTING_HTML_DIR+"latest")
-                        os.symlink(dirname+"index.html", W4_SETTING_HTML_DIR+"latest")
+                    os.remove(W4_SETTING_HTML_DIR+"latest")
+                    os.symlink(dirname+"index.html", W4_SETTING_HTML_DIR+"latest")
