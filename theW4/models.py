@@ -4,10 +4,19 @@ from django.template import Context
 from django.template.loader import get_template
 from datetime import datetime
 
+
+class Language(models.Model):
+    language_code = models.CharField(max_length=3, db_index=True, default="el")
+    culture_code = models.CharField(max_length=3)
+
+    def __unicode__(self):
+        return "%s_%s" % (self.language_code, self.culture_code if self.culture_code else "")
+
 class Item(models.Model):
     title = models.CharField(max_length=256, blank=True, null=True)
     text = models.TextField(blank=True,null=True)
     link = models.URLField(max_length=256)
+    language = models.ManyToManyField(Language)
     
     created = models.DateTimeField(blank=True,null=True)
     updated = models.DateTimeField(blank=True,null=True)
