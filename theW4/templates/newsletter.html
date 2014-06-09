@@ -34,7 +34,7 @@
 									{{ date|date:"j F Y" }}
 								</td>
 								<td align="right" valign="middle" width="300" style="font-size:10px;font-style:italic;">
-									{% trans "Δεν εμφανίζεται σωστά;" %} <a href="{{ url }}newsletters/{{ id }}/" target="_blank" style="text-decoration:none; color:#FF0000">{% trans "Δείτε το στον browser." %}</a>
+									{% trans "Does this email look weird?" %} <a href="{{ url }}newsletters/{{ id }}/" target="_blank" style="text-decoration:none; color:#FF0000">{% trans "Try viewing it in your browser." %}</a>
 								</td>
 							</tr>
 						</table>
@@ -79,7 +79,7 @@
 						*|IF:REWARDS|* *|REWARDS|* *|END:IF|*
 					</td>
 					<td align="center" valign="middle" style="font-family:Arial,sans-serif; font-size:10px;background:#000000;color:#AAAAAA;padding:10px;">
-						Λαμβάνετε αυτό το e-mail επειδή γραφτήκατε στο W4 Newsletter. Αν δεν επιθυμείτε πια να λαμβάνετε αυτές τις ενημερώσεις, <a href="*|UNSUB|*" target="_blank" style="text-decoration:none;color:#FF0000;">διαγραφείτε από τη λίστα μας</a>.
+						You're receiving this email because you signed up for The W4 Newsletter. If you no longer want to be getting our updates, <a href="*|UNSUB|*" target="_blank" style="text-decoration:none;color:#FF0000;">you can unsubscribe from our list</a>.
 						<br>
 						<br>
 						&copy; {{ date|date:"Y" }} Daphne Koumpa &amp; Advocate/Burson-Marsteller<br>
