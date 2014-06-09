@@ -8,13 +8,13 @@ from settings import W4_SETTING_HTML_DIR, W4_SETTING_URL
 def list(request):
 	try:
 		english	= Language.objects.get(language_code="en")
-		list_en = Newsletter.objects.filter(language__id=english.id)
+		list_en = Newsletter.objects.filter(language__id=english.id).order_by('-date')
 	except DoesNotExist:
 		list_en = []
 
 	try:
 		greek = Language.objects.get(language_code="el")
-		list_gr = Newsletter.objects.filter(language__id=greek.id)
+		list_gr = Newsletter.objects.filter(language__id=greek.id).order_by('-date')
 	except ObjectDoesNotExist:
 		list_gr = []
 

@@ -42,7 +42,9 @@ class Item(models.Model):
 
 class Newsletter(models.Model):
     title = models.CharField(max_length=256, blank=True, null=True)
+    intro = models.TextField(blank=True,null=True)
     items =  models.ManyToManyField(Item)
+    outro = models.TextField(blank=True,null=True)
     date = models.DateTimeField(blank=True,null=True)
     language = models.ForeignKey(Language,null=True)
 
@@ -82,6 +84,9 @@ class Newsletter(models.Model):
         # print dirname
         # create static html file
         context = Context({
+            'title': self.title,
+            'intro': self.intro,
+            'outro': self.outro,
             'items': self.items.all(),
             'date': self.date,
             'url': W4_SETTING_URL,
@@ -96,7 +101,7 @@ class Newsletter(models.Model):
         f.close
 
         #if this is the latest newsletter, create a symlink
-        if created:
+        if created and not language is null and language.language_code==en:
             if self.id > latest.id:
                 import os
                 try:
