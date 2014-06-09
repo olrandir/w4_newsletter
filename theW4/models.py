@@ -41,8 +41,10 @@ class Item(models.Model):
         super(Item, self).save(*args, **kwargs) # Call the "real" save() method      
 
 class Newsletter(models.Model):
+    title = models.CharField(max_length=256, blank=True, null=True)
     items =  models.ManyToManyField(Item)
     date = models.DateTimeField(blank=True,null=True)
+    language = models.ForeignKey(Language,null=True)
 
     created = models.DateTimeField(blank=True,null=True)
     updated = models.DateTimeField(blank=True,null=True)
