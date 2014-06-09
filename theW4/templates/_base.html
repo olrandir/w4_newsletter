@@ -1,0 +1,75 @@
+{% load i18n %}{% load functions %}<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# website: http://ogp.me/ns/website#">
+	<!-- <meta property="fb:app_id" content="YOUR_APP_ID" /> -->
+	<!-- Facebook og:tags -->
+	<meta property="og:type"   content="website" /> 
+	<meta property="og:url"    content="http://w4newsletter.gr/" /> 
+	<meta property="og:title"  content="Weekly Wonders of the Web on Wednesdays" /> 
+	<meta property="og:description" content="Διαλέγουμε τα πιο ενδιαφέροντα links του διαδικτύου και σας τα στέλνουμε κάθε Τετάρτη στο e-mail σας, για να μένετε ενημερωμένοι για τις τελευταίες εξελίξεις." />
+	<meta property="og:site_name" content="The W4 Newsletter" />
+	<meta property="og:locale" content="el_GR" />
+	<meta property="og:image"  content="http://w4newsletter.gr/static/w4_newsletter.png" />
+	<meta property="og:image"  content="http://w4newsletter.gr/static/w4_index.png" /> 
+	<!-- Twitter card tags -->
+	<meta name="twitter:card" content="summary">
+	<meta name="twitter:site" content="@advocatebm">
+	<meta name="twitter:creator" content="@deadendmind">
+	<meta name="twitter:title" content="Weekly Wonders of the Web on Wednesdays">
+	<meta name="twitter:description" content="Διαλέγουμε τα πιο ενδιαφέροντα links του διαδικτύου και σας τα στέλνουμε κάθε Τετάρτη στο e-mail σας, για να μένετε ενημερωμένοι για τις τελευταίες εξελίξεις.">
+	<meta property="og:image"  content="http://w4newsletter.gr/static/w4_newsletter.png" />
+	<!-- End proprietary service tags -->
+	<meta charset="utf-8">
+	<title>The W4 Newsletter</title>
+	<link href='http://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,greek' rel='stylesheet' type='text/css'>
+	<link rel="icon" type="image/png" href="http://w4newsletter.gr/static/w4_logo.png">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title></title>
+    <meta name="description" content="The W4 Newsletter">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="h5bp/css/normalize.css">
+    <script src="h5bp/js/vendor/modernizr-2.6.2.min.js"></script>
+	<style>
+	html { height: 100%; background: white;}
+	body { height: 100%; margin: 0; width: 100%; }
+	* {margin:0;padding:0; font-family: 'Open Sans Condensed', sans-serif; font-size: 16px; line-height: 1.5em }
+	html, button, input, select, textarea {font-family: 'Open Sans Condensed', sans-serif;}
+	a { color: red; text-decoration: none; font-weight: bold;}
+	#container {width: 960px; min-height: 100%; background: white; border-left: 4px solid black; border-right: 4px solid black; margin: 0 auto;}
+	header { width: 940px; margin: 0 10px; padding-top: 150px; }
+	div.logo { font-size: 7.5em; line-height: 1em; font-weight: bold; text-transform: uppercase; height: 128px; text-align: center; margin: 0 auto; border-bottom: 1px solid red; }
+	div.subtitle { height: 20px; width: 940px; font-size: 1em; line-height: 1em; font-weight: bold; text-align: center; margin: auto; padding: 10px 0 5px; border-bottom: 1px solid red;}
+	div.content { margin: 10px; width: 940px; text-align: center;}
+	form.subscription { margin: 20px auto; background: black; color: white; width: 920px; height: 80px; line-height: 80px; text-align: center; padding: 10px; position: relative;}
+	form.subscription label { margin-right: 5px; font-weight: bold;}
+	form.subscription input[type="email"] { background-color: white; color: red; padding: 5px; border: none;}
+	form.subscription select { background-color: white; color: red; padding: 5px; border: none; margin-left:10px; margin-right:10px;}
+	form.subscription input[type="submit"] { background-color: red; color: white; padding: 5px; border: none; letter-spacing: 0px;}
+	.responses, div.mce_inline_error { position:absolute; background: black; }
+	.responses { bottom:7px; right: 10px; text-align: right;}
+	div.mce_inline_error { top:7px; right: 400px; }
+	p.smallprint { font-size:0.8em; }
+	footer { width: 960px; text-align: center; margin: 0 auto; position: absolute; bottom: 0;}
+	footer * { font-size:13px; margin:0;padding:0;}
+	{% block css %}
+	{% endblock %}
+	</style>
+</head>
+<body>
+	<div id="container">
+		<header>
+			<div class="logo">The w4 newsletter</div>
+			<div class="subtitle">Weekly Wonders of the Web on Wednesdays</div>
+		</header>
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+		<footer>
+			<p>coded by <a target="_blank" href="https://twitter.com/olrandir">Dimitris</a> | curated by <a target="_blank" href="http://twitter.com/deadendmind">Daphne</a> | powered by <a href="http://www.advocate-bm.gr/" target="_blank">Advocate/Burson-Marsteller</a></p>
+		</footer>
+	</div>
+</body>
+</html>

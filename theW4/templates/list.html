@@ -1,0 +1,24 @@
+{% extends '_base.html' %}
+{% block css %}
+	ul { padding:0 80px; text-align:left; }
+	footer { position:relative; }
+{% endblock %}
+{% block content %}
+	{% if list_en %}
+	English newsletters:
+	<ul>
+	{% for n in list_en %}
+		<li><a href="{{ url }}newsletters/{{ n.id }}/{% if n.title %}?{{n.title|urlencode}}{% endif %}">{{n.date|date:"j F, Y"}}{% if n.title %} | {{n.title}}{% endif %}</a></li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+
+	{% if list_gr %}
+	Greek newsletters:
+	<ul>
+	{% for n in list_gr %}
+		<li><a href="{{ url }}newsletters/{{ n.id }}/{% if n.title %}?{{n.title|urlencode}}{% endif %}">{{n.date|date:"j F, Y"}}{% if n.title %} | {{n.title}}{% endif %}</a></li>
+	{% endfor %}
+	</ul>
+	{% endif %}
+{% endblock %}
