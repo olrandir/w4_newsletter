@@ -13,7 +13,7 @@ def list(request):
 		list_en = []
 
 	try:
-		greek = Language.objects.get(language_code="gr")
+		greek = Language.objects.get(language_code="el")
 		list_gr = Newsletter.objects.filter(language__id=greek.id)
 	except ObjectDoesNotExist:
 		list_gr = []
