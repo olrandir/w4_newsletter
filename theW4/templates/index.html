@@ -43,11 +43,15 @@
 	div.logo { font-size: 7.5em; line-height: 1em; font-weight: bold; text-transform: uppercase; height: 128px; text-align: center; margin: 0 auto; border-bottom: 1px solid red; }
 	div.subtitle { height: 20px; width: 940px; font-size: 1em; line-height: 1em; font-weight: bold; text-align: center; margin: auto; padding: 10px 0 5px; border-bottom: 1px solid red;}
 	div.content { margin: 10px; width: 940px; text-align: center;}
-	form#subscription, form#mc-embedded-subscribe-form { margin: 20px auto; background: black; color: white; width: 920px; height: 80px; line-height: 80px; text-align: center; padding: 10px;}
-	form#subscription label, form#mc-embedded-subscribe-form label { margin-right: 5px; font-weight: bold;}
-	form#subscription input[type="email"], form#mc-embedded-subscribe-form input[type="email"] { background-color: white; color: red; padding: 5px; border: none; margin-right: 5px;}
-	form#subscription input[type="submit"], form#mc-embedded-subscribe-form input[type="submit"] { background-color: red; color: white; padding: 5px; border: none; letter-spacing: 0px;}
-	p.smallprint {font-size:0.8em;}
+	form.subscription { margin: 20px auto; background: black; color: white; width: 920px; height: 80px; line-height: 80px; text-align: center; padding: 10px; position: relative;}
+	form.subscription label { margin-right: 5px; font-weight: bold;}
+	form.subscription input[type="email"] { background-color: white; color: red; padding: 5px; border: none;}
+	form.subscription select { background-color: white; color: red; padding: 5px; border: none; margin-left:10px; margin-right:10px;}
+	form.subscription input[type="submit"] { background-color: red; color: white; padding: 5px; border: none; letter-spacing: 0px;}
+	.responses, div.mce_inline_error { position:absolute; background: black; }
+	.responses { bottom:7px; right: 10px; text-align: right;}
+	div.mce_inline_error { top:7px; right: 400px; }
+	p.smallprint { font-size:0.8em; }
 	footer { width: 960px; text-align: center; margin: 0 auto; position: absolute; bottom: 0;}
 	footer * { font-size:13px; margin:0;padding:0;}
 	</style>
@@ -59,18 +63,33 @@
 			<div class="subtitle">Weekly Wonders of the Web on Wednesdays</div>
 		</header>
 		<div class="content">
-			<p>Διαλέγουμε τα πιο ενδιαφέροντα links του διαδικτύου και σας τα στέλνουμε κάθε Τετάρτη στο e-mail σας, για να μένετε ενημερωμένοι για τις τελευταίες εξελίξεις. <a href="http://w4newsletter.gr/newsletters/latest">Δείτε το τελευταίο newsletter.</a></p>
+			<p>We comb the web for the week's most interesting links, and send you a curated selection every Wednesday, straight to your inbox! <a href="http://w4newsletter.gr/newsletters/latest">See our latest newsletter.</a></p>
+			<!-- <p>Διαλέγουμε τα πιο ενδιαφέροντα links του διαδικτύου και σας τα στέλνουμε κάθε Τετάρτη στο e-mail σας, για να μένετε ενημερωμένοι για τις τελευταίες εξελίξεις. <a href="http://w4newsletter.gr/newsletters/latest">Δείτε το τελευταίο newsletter.</a></p> -->
 			
 			<!-- Begin MailChimp Signup Form -->
-			<form action="http://advocate-bm.us5.list-manage.com/subscribe/post?u=310c8e6c0a9b479f9fb6f1676&amp;id=ffe401c942" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+
+			<form action="http://advocate-bm.us5.list-manage1.com/subscribe/post?u=310c8e6c0a9b479f9fb6f1676&amp;id=ffe401c942" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="subscription validate" target="_blank" novalidate>
 				<label for="mce-EMAIL">e-mail:</label>
-				<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="email address" required>
-				<input type="submit" value="Εγγραφή" name="subscribe" id="mc-embedded-subscribe" class="button">
+				<input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="email address" required>
+				<select name="group[17885]" class="REQ_CSS required" id="mce-group[17885]">
+					<option value="">Select language</option>
+					<option value="1">English</option>
+					<option value="2">Greek</option>
+				</select>
+				<div id="mce-responses" class="responses">
+					<div class="response" id="mce-error-response" style="display:none"></div>
+					<div class="response" id="mce-success-response" style="display:none"></div>
+				</div>
+
+				<input type="submit" value="Subscribe" name="subscribe" id="mc-embedded-subscribe" class="button">
+				<!--
+				<input type="submit" value="Εγγραφή" name="subscribe" id="mc-embedded-subscribe" class="button"> -->
 			</form>
 
 			<!--End mc_embed_signup-->
 
-			<p class="smallprint">*Τα τυπικά: δεσμευόμαστε ότι θα διαχειριστούμε τη διεύθυνση e-mail σας με εχεμύθεια, και δε θα τη μοιραστούμε με κανένα τρίτο πρόσωπο, εταιρία ή οργανισμό χωρίς την έγκρισή σας.</p>
+			<p class="smallprint">*We solemnly swear to treat your e-mail address with the politeness and confidentiality it deserves, and never share it with anyone, no matter how nicely they ask for it.</p>
+			<!-- <p class="smallprint">*Τα τυπικά: δεσμευόμαστε ότι θα διαχειριστούμε τη διεύθυνση e-mail σας με εχεμύθεια, και δε θα τη μοιραστούμε με κανένα τρίτο πρόσωπο, εταιρία ή οργανισμό χωρίς την έγκρισή σας.</p> -->
 		</div>
 		<footer>
 			<p>coded by <a target="_blank" href="https://twitter.com/olrandir">Dimitris</a> | curated by <a target="_blank" href="http://twitter.com/deadendmind">Daphne</a> | powered by <a href="http://www.advocate-bm.gr/" target="_blank">Advocate/Burson-Marsteller</a></p>
@@ -80,5 +99,197 @@
     <script>window.jQuery || document.write('<script src="h5bp/js/vendor/jquery-1.8.3.min.js"><\/script>')</script>
     <script src="h5bp/js/plugins.js"></script>
     <script src="h5bp/js/main.js"></script>
+    <script type="text/javascript">
+	var fnames = new Array();var ftypes = new Array();fnames[0]='EMAIL';ftypes[0]='email';fnames[1]='FNAME';ftypes[1]='text';fnames[2]='LNAME';ftypes[2]='text';
+	try {
+	    var jqueryLoaded=jQuery;
+	    jqueryLoaded=true;
+	} catch(err) {
+	    var jqueryLoaded=false;
+	}
+	var head= document.getElementsByTagName('head')[0];
+	if (!jqueryLoaded) {
+	    var script = document.createElement('script');
+	    script.type = 'text/javascript';
+	    script.src = '//ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js';
+	    head.appendChild(script);
+	    if (script.readyState && script.onload!==null){
+	        script.onreadystatechange= function () {
+	              if (this.readyState == 'complete') mce_preload_check();
+	        }    
+	    }
+	}
+
+	var err_style = '';
+	try{
+	    err_style = mc_custom_error_style;
+	} catch(e){
+	    err_style = '#mc_embed_signup input.mce_inline_error{border-color:#6B0505;} #mc_embed_signup div.mce_inline_error{margin: 0 0 1em 0; padding: 5px 10px; background-color:#6B0505; font-weight: bold; z-index: 1; color:#fff;}';
+	}
+	var head= document.getElementsByTagName('head')[0];
+	var style= document.createElement('style');
+	style.type= 'text/css';
+	if (style.styleSheet) {
+	  style.styleSheet.cssText = err_style;
+	} else {
+	  style.appendChild(document.createTextNode(err_style));
+	}
+	head.appendChild(style);
+	setTimeout('mce_preload_check();', 250);
+
+	var mce_preload_checks = 0;
+	function mce_preload_check(){
+	    if (mce_preload_checks>40) return;
+	    mce_preload_checks++;
+	    try {
+	        var jqueryLoaded=jQuery;
+	    } catch(err) {
+	        setTimeout('mce_preload_check();', 250);
+	        return;
+	    }
+	    var script = document.createElement('script');
+	    script.type = 'text/javascript';
+	    script.src = 'http://downloads.mailchimp.com/js/jquery.form-n-validate.js';
+	    head.appendChild(script);
+	    try {
+	        var validatorLoaded=jQuery("#fake-form").validate({});
+	    } catch(err) {
+	        setTimeout('mce_preload_check();', 250);
+	        return;
+	    }
+	    mce_init_form();
+	}
+	function mce_init_form(){
+	    jQuery(document).ready( function($) {
+	      var options = { errorClass: 'mce_inline_error', errorElement: 'div', onkeyup: function(){}, onfocusout:function(){}, onblur:function(){}  };
+	      var mce_validator = $("#mc-embedded-subscribe-form").validate(options);
+	      $("#mc-embedded-subscribe-form").unbind('submit');//remove the validator so we can get into beforeSubmit on the ajaxform, which then calls the validator
+	      options = { url: 'http://advocate-bm.us5.list-manage2.com/subscribe/post-json?u=310c8e6c0a9b479f9fb6f1676&id=ffe401c942&c=?', type: 'GET', dataType: 'json', contentType: "application/json; charset=utf-8",
+	                    beforeSubmit: function(){
+	                        $('#mce_tmp_error_msg').remove();
+	                        $('.datefield','#mc_embed_signup').each(
+	                            function(){
+	                                var txt = 'filled';
+	                                var fields = new Array();
+	                                var i = 0;
+	                                $(':text', this).each(
+	                                    function(){
+	                                        fields[i] = this;
+	                                        i++;
+	                                    });
+	                                $(':hidden', this).each(
+	                                    function(){
+	                                        var bday = false;
+	                                        if (fields.length == 2){
+	                                            bday = true;
+	                                            fields[2] = {'value':1970};//trick birthdays into having years
+	                                        }
+	                                    	if ( fields[0].value=='MM' && fields[1].value=='DD' && (fields[2].value=='YYYY' || (bday && fields[2].value==1970) ) ){
+	                                    		this.value = '';
+										    } else if ( fields[0].value=='' && fields[1].value=='' && (fields[2].value=='' || (bday && fields[2].value==1970) ) ){
+	                                    		this.value = '';
+										    } else {
+										        if (/\[day\]/.test(fields[0].name)){
+	    	                                        this.value = fields[1].value+'/'+fields[0].value+'/'+fields[2].value;									        
+										        } else {
+	    	                                        this.value = fields[0].value+'/'+fields[1].value+'/'+fields[2].value;
+		                                        }
+		                                    }
+	                                    });
+	                            });
+	                        $('.phonefield-us','#mc_embed_signup').each(
+	                            function(){
+	                                var fields = new Array();
+	                                var i = 0;
+	                                $(':text', this).each(
+	                                    function(){
+	                                        fields[i] = this;
+	                                        i++;
+	                                    });
+	                                $(':hidden', this).each(
+	                                    function(){
+	                                        if ( fields[0].value.length != 3 || fields[1].value.length!=3 || fields[2].value.length!=4 ){
+	                                    		this.value = '';
+										    } else {
+										        this.value = 'filled';
+		                                    }
+	                                    });
+	                            });
+	                        return mce_validator.form();
+	                    }, 
+	                    success: mce_success_cb
+	                };
+	      $('#mc-embedded-subscribe-form').ajaxForm(options);
+	      
+	      
+	    });
+	}
+	function mce_success_cb(resp){
+	    $('#mce-success-response').hide();
+	    $('#mce-error-response').hide();
+	    if (resp.result=="success"){
+	        $('#mce-'+resp.result+'-response').show();
+	        $('#mce-'+resp.result+'-response').html(resp.msg);
+	        $('#mc-embedded-subscribe-form').each(function(){
+	            this.reset();
+	    	});
+	    } else {
+	        var index = -1;
+	        var msg;
+	        try {
+	            var parts = resp.msg.split(' - ',2);
+	            if (parts[1]==undefined){
+	                msg = resp.msg;
+	            } else {
+	                i = parseInt(parts[0]);
+	                if (i.toString() == parts[0]){
+	                    index = parts[0];
+	                    msg = parts[1];
+	                } else {
+	                    index = -1;
+	                    msg = resp.msg;
+	                }
+	            }
+	        } catch(e){
+	            index = -1;
+	            msg = resp.msg;
+	        }
+	        try{
+	            if (index== -1){
+	                $('#mce-'+resp.result+'-response').show();
+	                $('#mce-'+resp.result+'-response').html(msg);            
+	            } else {
+	                err_id = 'mce_tmp_error_msg';
+	                html = '<div id="'+err_id+'" style="'+err_style+'"> '+msg+'</div>';
+	                
+	                var input_id = '#mc_embed_signup';
+	                var f = $(input_id);
+	                if (ftypes[index]=='address'){
+	                    input_id = '#mce-'+fnames[index]+'-addr1';
+	                    f = $(input_id).parent().parent().get(0);
+	                } else if (ftypes[index]=='date'){
+	                    input_id = '#mce-'+fnames[index]+'-month';
+	                    f = $(input_id).parent().parent().get(0);
+	                } else {
+	                    input_id = '#mce-'+fnames[index];
+	                    f = $().parent(input_id).get(0);
+	                }
+	                if (f){
+	                    $(f).append(html);
+	                    $(input_id).focus();
+	                } else {
+	                    $('#mce-'+resp.result+'-response').show();
+	                    $('#mce-'+resp.result+'-response').html(msg);
+	                }
+	            }
+	        } catch(e){
+	            $('#mce-'+resp.result+'-response').show();
+	            $('#mce-'+resp.result+'-response').html(msg);
+	        }
+	    }
+	}
+
+	</script>
+
 </body>
 </html>
