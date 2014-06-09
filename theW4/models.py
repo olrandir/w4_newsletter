@@ -16,7 +16,7 @@ class Item(models.Model):
     title = models.CharField(max_length=256, blank=True, null=True)
     text = models.TextField(blank=True,null=True)
     link = models.URLField(max_length=256)
-    language = models.ManyToManyField(Language)
+    language = models.ForeignKey(Language,null=True)
     
     created = models.DateTimeField(blank=True,null=True)
     updated = models.DateTimeField(blank=True,null=True)
@@ -27,7 +27,10 @@ class Item(models.Model):
         verbose_name_plural = 'Items'
 
     def __unicode__(self):
-        return "%s [%s]" % (self.title if self.title else "untitled", self.link)
+        return "%s [%s] (%s)" % (self.title if self.title else "untitled", 
+            self.link,
+            self.language if self.language else "unknown language"
+            )
 
     def save(self, *args, **kwargs):
         if not self.id:
