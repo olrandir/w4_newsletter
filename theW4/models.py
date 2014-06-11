@@ -101,7 +101,7 @@ class Newsletter(models.Model):
         f.close
 
         #if this is the latest newsletter, create a symlink
-        if created and not language is null and language.language_code==en:
+        if created and not self.language is None and self.language.language_code=="en":
             if self.id > latest.id:
                 import os
                 try:
